@@ -17,6 +17,39 @@ abstract public class GameObject {
         this.MinSizeY = 0;
         this.MaxSizeX = 0;
         this.MaxSizeY = 0;
+        this.isDestroyed = false;
+        this.isMovable = false;
+    }
+
+
+
+    public GameObject(int x, int y) {
+        this.SetX(x);
+        this.SetY(y);
+        this.isDestroyed = false;
+        this.isMovable = false;
+    }
+
+    public GameObject(int x, int y, int MinSizeX, int MinSizeY, int MaxSizeX, int MaxSizeY) {
+        this.SetX(x);
+        this.SetY(y);
+        this.SetMinSizeX(MinSizeX);
+        this.SetMinSizeY(MinSizeY);
+        this.SetMaxSizeX(MaxSizeX);
+        this.SetMaxSizeY(MaxSizeY);
+        this.isDestroyed = false;
+        this.isMovable = false;
+    }
+
+    public GameObject(int x, int y, int MinSizeX, int MinSizeY, int MaxSizeX,int MaxSizeY, boolean isMovable, boolean isDestroyed) {
+        this.SetX(x);
+        this.SetY(y);
+        this.SetMinSizeX(MinSizeX);
+        this.SetMinSizeY(MinSizeY);
+        this.SetMaxSizeX(MaxSizeX);
+        this.SetMaxSizeY(MaxSizeY);
+        this.SetIsDestroyed(isDestroyed);
+        this.SetIsMovable(isMovable);
     }
 
 
