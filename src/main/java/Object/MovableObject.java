@@ -43,6 +43,12 @@ abstract public class MovableObject extends GameObject {
     private Rotation rotation;
 
 
+    private int MaxX;
+    private int MaxY;
+    private int MinX;
+    private int MinY;
+
+
     public MovableObject() {
         super();
         this.rotation = Rotation.NONE;
@@ -52,6 +58,18 @@ abstract public class MovableObject extends GameObject {
         super(x, y, MinSizeX, MinSizeY, MaxSizeX, MaxSizeY);
         this.SetSpeed(Speed);
         this.SetRotation(Rotation);
+    }
+
+
+    public MovableObject(int x, int y, int MinSizeX, int MinSizeY,int MaxSizeX,int MaxSizeY,
+                         int Speed,int Rotation,int MaxX,int MaxY,int MinX,int MinY) {
+        super(x, y, MinSizeX, MinSizeY, MaxSizeX, MaxSizeY);
+        this.SetSpeed(Speed);
+        this.SetRotation(Rotation);
+        this.SetMaxX(MaxX);
+        this.SetMaxY(MaxY);
+        this.SetMinX(MinX);
+        this.SetMinY(MinY);
     }
 
 
@@ -103,6 +121,40 @@ abstract public class MovableObject extends GameObject {
     }
 
 
+    public boolean SetMaxX(int MaxX) {
+        if (MaxX >=0 && MaxX < 1920){
+            this.MaxX = MaxX;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean SetMaxY(int MaxY) {
+        if (MaxY >=0 && MaxY < 1080){
+            this.MaxY = MaxY;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean SetMinX(int MinX) {
+        if (MinX >=0 && MinX < 1920){
+            this.MinX = MinX;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean SetMinY(int MinY) {
+        if (MinY >=0 && MinY < 1080){
+            this.MinY = MinY;
+            return true;
+        }
+        return false;
+    }
+
+
+
 
 
     //------------------------------------->>>Getter
@@ -115,6 +167,19 @@ abstract public class MovableObject extends GameObject {
 
     public String getRotation() {
         return rotation.toString();
+    }
+
+    public int getMaxX() {
+        return this.MaxX;
+    }
+    public int getMaxY() {
+        return this.MaxY;
+    }
+    public int getMinX() {
+        return this.MinX;
+    }
+    public int getMinY() {
+        return this.MinY;
     }
 
 
