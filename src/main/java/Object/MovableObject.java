@@ -2,7 +2,7 @@ package Object;
 
 abstract public class MovableObject extends GameObject {
     private enum Speed{
-        VERYLOW, LOW, MEDIUM, HIGH, VERYHIGH;
+        VERYLOW, LOW, MEDIUM, HIGH, VERYHIGH,NONE;
 
         @Override
         public String toString() {
@@ -16,13 +16,15 @@ abstract public class MovableObject extends GameObject {
                 return "4";
             else if (this == VERYHIGH) {
                 return "5";
+            } else if (this == NONE) {
+                return "0";
             }
-            return "0";
+            return "-1";
         }
     }
     private Speed speed;
     private enum Rotation{
-        LEFT, RIGHT,TOP, BOTTOM;
+        LEFT, RIGHT,TOP, BOTTOM,NONE;
         @Override
         public String toString() {
             if (this == LEFT)
@@ -33,7 +35,9 @@ abstract public class MovableObject extends GameObject {
                 return "3";
             else if (this == BOTTOM)
                 return "4";
-            return "0";
+            else if (this == NONE)
+                return "0";
+            return "-1";
         }
     }
     private Rotation rotation;
@@ -41,7 +45,13 @@ abstract public class MovableObject extends GameObject {
 
     public MovableObject() {
         super();
-
+        this.rotation = Rotation.NONE;
+        this.speed = Speed.NONE;
+    }
+    public MovableObject(int x, int y, int MinSizeX, int MinSizeY,int MaxSizeX,int MaxSizeY,int Speed,int Rotation) {
+        super(x, y, MinSizeX, MinSizeY, MaxSizeX, MaxSizeY);
+        this.SetSpeed(Speed);
+        this.SetRotation(Rotation);
     }
 
 
