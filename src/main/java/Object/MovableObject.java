@@ -108,4 +108,13 @@ abstract public class MovableObject extends GameObject {
     }
 
 
+
+    //------------------------------------->>>Function
+
+    @Override
+    abstract public boolean Collision(GameObject other);
+    @Override
+    abstract public boolean Destroy(GameObject other);
+
+
 }
