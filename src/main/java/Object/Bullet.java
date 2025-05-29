@@ -6,6 +6,15 @@ public class Bullet extends MovableObject implements IMovableObject{
 
 
 
+    public Bullet(int x, int y, int MinSizeX, int MinSizeY,int MaxSizeX,int MaxSizeY,
+                  int Speed,int Rotation,int MaxX,int MaxY,int MinX,int MinY,int CurentDamage,int MaxDamage) {
+        super(x, y, MinSizeX, MinSizeY, MaxSizeX, MaxSizeY, Speed, Rotation, MaxX, MaxY, MinX, MinY);
+        this.SetCurentDamage(CurentDamage);
+        this.SetMaxDamage(MaxDamage);
+    }
+
+
+
     public boolean SetCurentDamage(int CurentDamage) {
         if(CurentDamage > 0 && CurentDamage <= this.MaxDamage){
             this.CurentDamage = CurentDamage;
