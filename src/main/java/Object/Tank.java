@@ -4,7 +4,12 @@ public class Tank extends MovableObject implements IMovableObject{
     private int CurentHp;
     private int MaxHp;
 
-    public Tank(int CurentHp, int MaxHp) {}
+    public Tank(int x, int y, int MinSizeX, int MinSizeY,int MaxSizeX,int MaxSizeY,
+                int Speed,int Rotation,int MaxX,int MaxY,int MinX,int MinY,int CurentHp,int MaxHp) {
+        super(x, y, MinSizeX, MinSizeY, MaxSizeX, MaxSizeY, Speed, Rotation, MaxX, MaxY, MinX, MinY);
+        this.SetCurentHp(CurentHp);
+        this.SetMaxHp(MaxHp);
+    }
 
 
     public boolean SetMaxHp(int MaxHp) {
@@ -17,7 +22,7 @@ public class Tank extends MovableObject implements IMovableObject{
 
 
     public boolean SetCurentHp(int CurentHp) {
-        if(CurentHp > 0 && CurentHp <= 10) {
+        if(CurentHp > 0 && CurentHp <= this.MaxHp) {
             this.CurentHp = CurentHp;
             return true;
         }
@@ -42,7 +47,9 @@ public class Tank extends MovableObject implements IMovableObject{
 
     @Override
     public boolean Destroy(GameObject other) {
-        return false;
+        other =null;
+        System.gc();
+        return true;
     }
 
 
